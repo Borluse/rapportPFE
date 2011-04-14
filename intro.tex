@@ -1,0 +1,67 @@
+﻿\section{Introduction}
+
+\subsection{Présentation du sujet} % (fold)
+\label{sub:présentation_du_sujet}
+
+% subsection présentation_du_sujet (end)
+Suivant le developpement des mobiles, nous pouvons faire plus de chose qu'avant. Les mobiles aujourd'huis ne sont pas seulement un appareil pour téléphoner, mais aussi ont la capable de réaliser des functions qu'on ne peut pas imaginer avant. Les mobiles les plus modernes aujourd'huis sont les mobiles qui s'appele Smart-Phone. 
+
+Le smart-phone est un genre de téléphone qui a un système d'exploitation dedans. Le smart-phone permet d'exécuter les applications écrit par les developpeurs. Le smart-phone est en fait un ordinateur spéciale en size. Son architecture ressemble à l'architecture d'ordinateur. Il a compris un CPU, des mémoire, une carte de mère, souvent des lecteurs, etc.. Et aujourd'hui, le téléphone le plus moderne a aussi une carte 3D, un module de WIFI, un module 3G, un module de GPS, un appareil de photo etc. Cela nous permet de créer beaucoup des applications intéressant et puissant. 
+
+Mon Projet de fin d'étude est réalisé sur le smart-phone. 
+
+Le sujet de mon projet de fin d'étude est \guillemotleft Reconnaissance de bâtiment \guillemotright, proposé par Melle Sabine Barrat. Ce projet signifie à créer un système sur le smart-phone qui peut obtenir automatiquement les informations sur un bâtiment prise en photo par le smart-phone. Les informations peuvent être l'adresse du bâtiment, le nom, le fonctionnalité, etc. Pour ce projet de fin d'étude, deux objectifs sont visés : 
+\begin{enumerate}
+	\item L’utilisateur se trouve devant un bâtiment et le prend en photo en vue d’obtenir des informations dessus. 
+	\item L’utilisateur peut également prendre en photo une affiche ou une publicité présentant un bâtiment qui l’intéresse.
+\end{enumerate}
+
+Ce projet de fin d'étude est divisé en trois approche :
+
+\begin{enumerate}
+	\item Dans un premier temps, il faut essayer de retirer les points d'intérêt d'une photo. Nous avons 2 algorithmes à choisi, soit l'algorithme SIFT, soit l'algorithme SURF. Les calcules des points d'intérêts vont être réalisés sur le smart-phone et le serveur. 
+	\item Après avoir des points d'intérêts, nous allons faire la comparaison des points d'intérêts entre la photo de requête et les photos dans la base de donnée. Cette partie va trouver la plus proche photo.
+	\item Une fois on a trouver la plus proche photo, nous pouvons retirer ses information du serveur, et les afficher sur le smart-phone. Les informations sont enregistré sous forme d'un fichier XML. Nous pouvons rechercher ces informations grâce au moteur de recherche GOOGLE.
+\end{enumerate}
+
+L'architecture de ce projet de fin d'étude est Server-Client. La base de donnée est installé sur le serveur, qui comprend une large quantité des images. 
+
+\subsection{Smart-Phone choisi} % (fold)
+\label{sub:smart_phone_choisi}
+
+Pour ce projet de fin d'étude, il faut au début décider le Smart-Phone pour développer. Melle Sabine Barrat m'avait proposé deux choix :
+\begin{description}
+	\item[Android] Le Smart-Phone Android est les téléphones qui utilisent Google Android comme leur système d'exploitation. L'application sur Android est du  Java.
+	\item[iPhone] Le Smart-Phone iPhone est développé par Apple. iPhone utilise le système d'exploitation iOS. iOS est un variation du système d'exploitation MacOS X. L'application sur iPhone est du langage Objective-C qui est un extension du langage C. 
+\end{description}
+
+Nous avons décidons de choisir iPhone comme le plateforme pour ce projet de fin d'étude. 
+% subsection smart_phone_choisi (end)
+
+\section{Outils Utilisé} % (fold)
+\label{sec:bilan_personnel}
+
+\subsection{XCode} % (fold)
+\label{ssub:xcode}
+
+XCode est une environnement de développement sur MacOS. Cet IDE (Environnement d Développement Intégré) est fournit par Apple. XCode est très bien intégré avec le framework iOS. Il fournit aussi plusieurs outils très convient. Donc il est plus facile d'utiliser XCode pour développer des applications sur iPhone. XCode fournit de nombreuses fonctionnalités : 
+\begin{enumerate}
+	\item Support multi langage : XCode peut être non seulement utilisé pour développer l'application du Objective-C sur iPhone, mais aussi utilisé pour développer l'application du C et C++. En plus, il peut supporter Java, PHP etc. 
+	\item Intégré dans le système MacOS : XCode est crée par Apple. Grace à ça, XCode peut marcher plus vite, fournir le meilleur stabilité, fournir des outils spéciale pour iPhone etc..
+	\item Auto-complétion : XCode fournit la fonctionnalité d'auto-complétion. Bien que beaucoup d'IDE fournit cette fonctionnalité, mais pour le développement de iPhone, XCode est le meilleur choix. 
+	\item Gestion des projet : XCode permet de gérer les projets iOS très facilement. Il fournit des façons simple pour ajouter des frameworks, modifier des configurations etc.. 
+\end{enumerate}
+En résumé, pour développer l'application sur iPhone, XCode est le meilleur solution.
+% subsubsection xcode (end)
+
+\subsection{Git} % (fold)
+\label{sub:github}
+
+Git est un logiciel de gestion de versions décentralisée, crée par Linus Torvalds. Git ne repose pas sur un serveur centralisé. 
+
+
+% subsection github (end)
+
+
+% section bilan_personnel (end)
+
