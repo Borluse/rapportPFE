@@ -4,6 +4,7 @@
 \label{sub:présentation_du_sujet}
 
 % subsection présentation_du_sujet (end)
+
 Suivant le developpement des mobiles, nous pouvons faire plus de chose qu'avant. Les mobiles aujourd'huis ne sont pas seulement un appareil pour téléphoner, mais aussi ont la capable de réaliser des functions qu'on ne peut pas imaginer avant. Les mobiles les plus modernes aujourd'huis sont les mobiles qui s'appele Smart-Phone. 
 
 Le smart-phone est un genre de téléphone qui a un système d'exploitation dedans. Le smart-phone permet d'exécuter les applications écrit par les developpeurs. Le smart-phone est en fait un ordinateur spéciale en size. Son architecture ressemble à l'architecture d'ordinateur. Il a compris un CPU, des mémoire, une carte de mère, souvent des lecteurs, etc.. Et aujourd'hui, le téléphone le plus moderne a aussi une carte 3D, un module de WIFI, un module 3G, un module de GPS, un appareil de photo etc. Cela nous permet de créer beaucoup des applications intéressant et puissant. 
@@ -54,14 +55,72 @@ XCode est une environnement de développement sur MacOS. Cet IDE (Environnement 
 En résumé, pour développer l'application sur iPhone, XCode est le meilleur solution.
 % subsubsection xcode (end)
 
-\subsection{Git} % (fold)
+\subsection{Git & github} % (fold)
 \label{sub:github}
 
-Git est un logiciel de gestion de versions décentralisée, crée par Linus Torvalds. Git ne repose pas sur un serveur centralisé. 
+Git est un logiciel de gestion de versions décentralisée, crée par Linus Torvalds. Git ne repose pas sur un serveur centralisé. C'est un outil bas niveau, qui se veut simple et très performant. Git indexe les fichiers d'après leur somme de contrôle calculée avec la fonction SHA-1. Quand un fichier n'est pas modifié, la somme de contrôle. 
+
+L'avantage de git est que il est très legère, mais puissant et rapide. Il a utilisé un méchanisme différent que les autres version contrôle.
+
+Pour mieux utiliser Git, nous pouvons utiliser un serveur sur Internet pour enregistrer notre sources. Github (www.github.com) est un service web d'hébergement et de gestion de développement de logiciels utilisant Git. Aussi, git est un logiciel gratuit.
 
 
 % subsection github (end)
 
+\subsection{Gitti} % (fold)
+\label{sub:gitti}
+
+Gitti est un logiciel gratuit pour mieux utiliser git. Il support github aussi. Ce logiciel permet d'utiliser git facilement, sans mémoriser les commandes de git. Il peut représenter les branches en graphique aussi. Gitti suit le standard d'interface défini par Apple. Il est très facile à maître. 
+
+
+% subsection gitti (end)
+
+\subsection{MAMP} % (fold)
+\label{sub:mamp}
+
+Ce projet de fin d'étude comprend un coté de serveur. Pour simplifier ce projet de fin d'étude, j'ai décidé de utiliser mon MacOS comme la serveur. J'ai choisi le logiciel MAMP pour ce serveur.
+
+MAMP est un acronyme informatique signifiant : 
+
+\begin{description}
+	\item[Macintosh] Le système d'exploitation, MacOS 
+	\item[Apache] Le serveur web connu du monde.
+	\item[MySQL] Le serveur de base de donnée.
+	\item[PHP] PHP est un langages de script pour créer des applications sur la coté serveur.
+\end{description}
+
+Comme LAMP, MAMP est un des logiciels connu sur MacOS. Il peut installer les 4 composantes en même temps et bien configuré. C'est une solution convenable. 
+
+% subsection gitti (end)
+
+\subsection{CMake} % (fold)
+\label{sub:mamp}
+
+CMake est un 'Moteur de production' multiplate-forme. Il est comparable au programme Make dans le sens ou le processus de construction logicielle est entièrement contrôlé par un fichier de configuration, appelés CMakeLists.txt.Mais Cmake ne produit pas directement le code finale. CMake va se charger de configurer et générer le Makefile sous Unix. 
+
+Le nom 'Cmake' signifie à 'Cross platform make'. Même si il y a un 'make' dans son nom, CMake lui-même est un application de haut niveau. 
+
+Donc ce projet de fin d'étude, j'ai utilisé plusieur framework, par exemple OpenCV, libSurf etc. Les framework sont écrit originale sous système Linux. Pour pouvoir compilé sous MacOS et modifié pour le but d'intégrer dans le plateforme iOS. Il faut reconfigurer les flags, les options etc. Nous utilisons le premier fois CMake pour générer un projet XCode.  Et ensuite, nous utilisons XCode pour modifier et compiler ce projet généré. Et comme ça, nous obtenons un framework spécial pour le framework iOS.
+
+% subsection CMakes (end)
+
+
+
 
 % section bilan_personnel (end)
+
+
+
+\section{Problème rencontré} % (fold)
+\label{sec:bilan_personnel}
+
+
+\subsection {OpenCV sur IOS}
+\label{sec:openv_sur_ios}
+
+Le gros problème est de comment réaliser l'algorithme SIFT ou SURF sur iOS. Les 2 algorithmes sont tout à fait difficile et complexe à réaliser. Et en plus, nous n'avons pas beaucoup de temps à réaliser. Donc la premier chose à faire est d'essayer de trouver une bibliothèque qui contient les 2 algorithmes. Après longtemps de recherche, j'ai trouvé une biblothèque qui s'appelle OpenCV. 
+
+Après avoir configuré par CMake, nous obtenions une bibliothèque compilé sur iOS. Mais le problème est que il existe des problème quand j'ai essayé d'intéger OpenCV dans le code Objective-C. Cela est causé par l'architecture spécial de iPhone, et le framework spécial de iOS.
+
+
 
