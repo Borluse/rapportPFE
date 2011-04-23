@@ -1,0 +1,37 @@
+﻿\section{Problème rencontré}
+\subsection{La qualité des photos} % (fold)
+\label{sub:la_qualité_des_photos}
+
+La qualité des photos affect beaucoup le temps des calculs et le mémoire utilisé. Précisément, la qualité des photos comprend la résolution de la photo et la qualité d'image. Une bonne qualité de photo, par exemple, la photo prise par l'appareil photo de iPhone 3G, a la résolution de 1200*1600 environ, et haut niveau de la qualité d'image. Cette photo cause beaucoup de temps pour calcule. En testant sur le simulateur sous MacOS, l'algorithme SURF prend environ 10 seconds, et plus lent pour l'algorithme de SIFT. Sur iPhone 3G, cette qualité ne peut pas être calculé du tout. L'application est tuée par système iOS. Le raison est trop d'utilisation des mémoire. 
+
+La qualité des photo affect aussi le résultat que nous obtenions. Reprendre l'exemple précédent, la résolution de 1200*1600 et haut niveau de la qualité nous donne un résultat de 10000+ des points clé. En revanche, la même photo, mais la résolution diminué à 600*800, et la qualité diminué à bas niveau donne un résultat de moins de 2000 des points clé.
+
+Diminuer la qualité des photo est la seule façon efficace de réduire le temps de calcul par les 2 algorithme sur le iPhone. Dans ce projet des fin d'étude, j'ai diminuer la qualité des photo en bas-niveau, la résolution à 600*800. En prenant ce pré-traitement sur des photos, nous réussissons à faire calcul sur iPhone, et le temps est environ 25 secondes. 
+
+% subsection la_qualité_des_images (end)
+
+
+\subsection{Le temps de comparaison des descripteurs sur le serveur} % (fold)
+\label{sub:le_temps_de_comparaison_des_descripteurs_sur_le_serveur}
+
+Une partie très importante de ce projet de fin d'étude est de comparer les descripteurs à partir des 2 photos sur le serveur. La base de donne des photos pour tester sur le serveur a environ 1500 photos. Toutes les photos sont traités par l'algorithmes de SURF et les points extrait sont enregistrés dans les fichier séparable au préalable. Nous devons faire des comparaison entre la photo de requête et toutes les photos dans la base de donnée, c-à-dire comparer la photo de requête avec la première photo dans la base de donnée, ensuite avec la deuxième photo, etc., jusqu'à la dernière photo.
+
+Pour réaliser ce comparaison des descripteurs, il faut choisir une algorithme efficace et rapide. Nous avons plusieurs choix, et à la fin, nous décidons d'utiliser une framework écrit par un professeur dans l'université des xxxxxxxx. Cette algorithme utilise l'arbre K-D tree comme structure, l'algorithme Best Bin First pour chercher k-ppv sur cet arbre et l'algorithme RANSAC pour éliminer les erreurs. Il est efficace par rapport aux autre algorithme.
+
+En réalité, cette algorithme peut diminuer le temps de calcul jusqu'à 2,3 secondes par photo, mais c'est encore loin d'être utilisable comme un produit finale. Au condition de ne savoir pas le puissante de serveur et les caractéristiques d'informatique du serveur, nous ne considérons pas les techniques avancé comme l'accélération des calculs grâce à la GPU, ou calcul parallélisme en utilisant plusieurs processus.  
+
+
+% subsection le_temps_de_comparaison_des_descripteurs_sur_le_serveur (end)
+
+\subsection{Transformer les photos en structures différente} % (fold)
+\label{sub:transformer_les_photos_en_structures_différente}
+
+Comme il est marqué, notre projet de fin d'étude a besoins des différentes bibliothèques. Les différentes bibliothèques ont les différentes structures pour représenter une image dans le mémoire. Pour utiliser les différentes bibliothèques, il faut être capable de transformer une structure en une autre structure. Précisément dire, nous devons transformer la structure UIImage(utilisé par les frameworks iOS) en IPimage(utilisé par le framework OpenCV). Et quand on fini le calcul sur la coté de client, nous devons transformer la structure cv::KeyPoint (utilisé dans le framework OpenCV, pour représenter les points clé) en la forme de xml. Ensuite, dans la coté de serveur, il faut transformer les donnée de XML en le structure de features(utilisé par le framework).
+
+Les transformation des différentes structures perdent quelques informations. De la structure de cv::KeyPoint au fichier XML perde le plus. Heureusement, nous n'avons pas besoins de si beaucoup d'informations. Donc, nous pouvons jeter les informations que nous utilisons pas. Par exemple, dans la transformation du cv::KeyPoint vers XML, nous gardons seulement les coordonnée des points clé et les descripteurs correspondantes, les autre informations, nous pouvons les jeter.
+
+La difficulté ici est que, il faut connaître les structures, savoir les sens des attributs. Et aussi, il faut comprend très bien les différentes algorithmes, trouve les donnée que nous avons besoins.
+
+% subsection transformer_les_photos_en_structures_différente (end)
+
+
