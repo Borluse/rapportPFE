@@ -1,0 +1,46 @@
+\section {Am¨¦lioration future}
+
+Ce projet de fin d'¨¦tude peut ¨ºtre am¨¦lior¨¦ dans plusieurs aspects dans la future. Pour ¨ºtre un produit finale, ce projet doit ¨ºtre capable de r¨¦aliser chaque reconnaissance de batiment pendant 5 secondes (Google Goggle sur Android peut r¨¦aliser ce recherche pendant 5 secondes). Il est assez difficile ¨¤ atteindre ce but. 
+
+A cause du temps de faire ce projet de fin d'¨¦tude, nous n'avons pas beaucoup de temps ¨¤ faire l'am¨¦lioration. Mais nous avons des choix ¨¤ faire.
+
+\subsection{Au niveau de l'algorithme}
+
+L'algorithme que nous avons choisi est l'algorithme de SURF. SURF est un tr¨¨s bon algorithme, qui marche plus vite que SIFT. N¨¦anmoins, il demande beaucoup de resource pour calculer. En testant en utilisant simulateur sur MacOS et en un iPhone 3G, pour calculer les caract¨¦ristique sur la m¨ºme photo, SURF prend 2 secondes sur MacOS, mais 20+ secondes sur iPhone 3G. 
+
+iPhone n'est pas puissante qu'un ordinateur, c'est normale d'avoir ce r¨¦sultat. Mais, dans un autre sens, nous n'avons pas eu le temps d'am¨¦liorer l'algorithme. Il est capable d'utiliser OpenGL ES 2.0, pour r¨¦aliser un calcule parall¨¨le. Mais c'est assez difficile ¨¤ faire, car iOS ne supporte pas encore OpenCL, qui est un framework sp¨¦cial pour calcule parll¨¨le. Donc, si nous voudrons faire un calcul parall¨¨le, nous devons utiliser le langage Shader. 
+
+Encore, nous pouvons faire des am¨¦lioration en prenant compte des diff¨¦rence entre les architectures. Le simulateur sur MacOS est l'architecture de i386, en revanche, l'architecture de iPhone est arm, c'est un architecture tout ¨¤ fait diff¨¦rent. La biblioth¨¨que OpenCV est cr¨¦e original sur l'architecture i386. M¨ºme si la biblioth¨¨que peut-¨ºtre utilis¨¦ sur iOS, je crois que il est capable encore d'am¨¦liorer l'algo sp¨¦cial pour l'architecture arm.
+
+\subsection{Au niveau de le mat¨¦riel}
+
+Suivant le developpement de iPhone, les caract¨¦ristiques techniques sont devenir le plus en plus avanc¨¦. iPhone est plus en plus puissante. Ca va r¨¦duire beaucoup de temps pour calculer les caract¨¦ristiques sur iPhone dans la future. 
+
+En m¨ºme temps, c'est pareil pour la cot¨¦ de serveur. Mais la diff¨¦rence par rapport au iPhone est que, nous pouvons am¨¦liorer la calcul sur le serveur en fesant une architecture parall¨¨le en utilisant plusieur CPU etc.. 
+
+\subsection{Les autres am¨¦lioration}
+
+Sauf les 2 am¨¦lioration principaux pr¨¦cedante, nous avons encore autre possiblilit¨¦ d'am¨¦liorer ce projet de fin d'¨¦tude.
+
+\subsubsection{En utilisant GPS}
+
+GPS est equip¨¦ dans chaque g¨¦n¨¦ration de iPhone. Il utilise le connexion 3G pour localiser et obtenir le coordonn¨¦e de GPS. En utilisant GPS, nous pouvons pr¨¦ciser le r¨¦sultat, dimunier le cadre des photos dans la base de donn¨¦e grace ¨¤ la coordon¨¦e de GPS. En utilisant GPS, nous pouvons enlever la pluspart des photo candidature dans la base de donn¨¦e.
+
+Mais, nous devons ajouter des coordonn¨¦e GPS dans la cot¨¦ de serveur. Pour ce projet de fin d'¨¦tude, nous n'avons pas d'information sur la cot¨¦ de serveur.
+
+\subsubsection{Utiliser un vrai base de donn¨¦e}
+
+Dans ce projet de fin d'¨¦tude, nous n'avons pas de vrai base de donn¨¦e. Toutes les images sont enregistr¨¦ dans un dossier. Toutes les caract¨¦ristiques sont enregistr¨¦e dans les fichiers xml s¨¦parable. Toutes les informations associ¨¦s sont enregistr¨¦s dans un seule fichier xml. En utilisant ce structure, nous perdons le temps pour charger les fichiers xml dans le m¨¦moire. En plus, nous perdons beaucoup de temps pour analyser les structure XML, pour localiser les informations que nous en avons besoins. 
+
+Dans la future, si possible, nous pouvons cr¨¦er un vrai base de donn¨¦e. Enregistrer tous les informations dedans. En utilisant cela, nous somme sur que nous pouvons eviter les temps perdu pour charger les fichier, analyse et localiser. M¨ºme si nous allons perdre le temps pour int¨¦rroger avec la base de donn¨¦e, mais cela doit ¨ºtre beaucoup vite que charger depuis les fichier. Et surtout, nous pouvons ¨¦viter analyser et localiser l'arbre XML.
+
+\subsubsection{Changer l'autre structure}
+
+Le XML est un tr¨¨s bon structure pour enregistrer les informations, mais il a son d¨¦savantage aussi. Pour chaque information, il faut au moins un balise. XML peut tr¨¨s bien repr¨¦senter les hirarchiques des informations, mais quand m¨ºme consume plus d'espace. Et aussi augementer le diffcult¨¦ pour analyser et retirer les informations, car il faut comparer les diff¨¦rentes balise en chaine des caract¨¨res. 
+
+Si les informations ne sont pas tr¨¨s compliqu¨¦, nous pouvons utiliser JSON pour communiquer entre le serveur et le client. JSON est une structure l¨¦g¨¨re. 
+
+
+
+
+
